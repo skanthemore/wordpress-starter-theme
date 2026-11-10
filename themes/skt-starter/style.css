@@ -1,0 +1,17 @@
+/*
+Theme Name: SKT Starter
+Theme URI: https://github.com/skanthemore/wordpress-starter-theme
+Author: Cristian Cascante
+Author URI: https://github.com/skanthemore
+Description: A lean classic starter theme built on PHP design tokens, a Vite asset pipeline and native block editor support. Designed to pair with the SKT Blocks plugin.
+Version: 1.0.0
+Requires at least: 6.6
+Tested up to: 6.9
+Requires PHP: 8.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: skt-starter
+Tags: custom-logo, custom-menu, featured-images, translation-ready, wide-blocks, block-styles
+
+Front-end styles are compiled into dist/main.css. See README.md.
+*/

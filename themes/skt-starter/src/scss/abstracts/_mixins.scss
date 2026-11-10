@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "../generated/breakpoints" as *;
+
+/// Mobile-first media query.
+/// @param {String} $name Breakpoint name from theme-data/breakpoints.php.
+@mixin from($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "Unknown breakpoint `#{$name}`.";
+  }
+
+  @media (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+/// Max-width media query, exclusive of the breakpoint itself.
+/// @param {String} $name Breakpoint name from theme-data/breakpoints.php.
+@mixin below($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "Unknown breakpoint `#{$name}`.";
+  }
+
+  @media (max-width: calc(#{map.get($breakpoints, $name)} - 0.02px)) {
+    @content;
+  }
+}
+
+/// Constrain an element to a token width and center it with the grid margin.
+/// @param {String} $width Width token: content or wide.
+@mixin container($width: wide) {
+  box-sizing: content-box;
+  max-width: var(--skt-width-#{$width});
+  margin-inline: auto;
+  padding-inline: var(--skt-grid-margin);
+}

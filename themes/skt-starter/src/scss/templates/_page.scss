@@ -1,0 +1,12 @@
+@use "../abstracts/mixins" as *;
+
+.page-entry__header {
+  @include container(content);
+
+  padding-block: var(--skt-spacing-m) var(--skt-spacing-s);
+}
+
+.page-entry__title {
+  margin: 0;
+  font-size: var(--skt-font-size-h1);
+}

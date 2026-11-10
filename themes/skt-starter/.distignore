@@ -1,0 +1,8 @@
+/.distignore
+/node_modules
+/package.json
+/package-lock.json
+/postcss.config.js
+/scripts
+/src
+/vite.config.js

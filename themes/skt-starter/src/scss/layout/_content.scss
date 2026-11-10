@@ -1,0 +1,58 @@
+@use "../abstracts/mixins" as *;
+
+// Block content flow.
+//
+// Children of .entry-content are constrained to the content width; wide and
+// full alignments break out of it. Selectors are wrapped in :where() so they
+// carry no specificity and any block can override them with a single class.
+
+:where(.entry-content) > * {
+  @include container(content);
+
+  margin-block: 0 var(--skt-flow-gap);
+}
+
+:where(.entry-content) > :where(.alignwide) {
+  max-width: var(--skt-width-wide);
+}
+
+:where(.entry-content) > :where(.alignfull) {
+  max-width: none;
+  padding-inline: 0;
+}
+
+// Regular content that follows a full-width section needs breathing room.
+:where(.entry-content) > :where(.alignfull) + :where(:not(.alignfull)) {
+  margin-block-start: var(--skt-spacing-m);
+}
+
+:where(.entry-content) > :last-child {
+  margin-block-end: 0;
+}
+
+.alignleft {
+  float: left;
+  margin-inline-end: var(--skt-grid-gutter-md);
+}
+
+.alignright {
+  float: right;
+  margin-inline-start: var(--skt-grid-gutter-md);
+}
+
+.aligncenter {
+  margin-inline: auto;
+}
+
+.wp-element-caption,
+.wp-caption-text {
+  margin-block-start: 0.5rem;
+  color: var(--skt-color-muted);
+  font-size: var(--skt-font-size-body-s);
+}
+
+.page-links {
+  display: flex;
+  gap: 0.5rem;
+  margin-block: var(--skt-spacing-s);
+}

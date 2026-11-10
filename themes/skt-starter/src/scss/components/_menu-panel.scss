@@ -1,0 +1,111 @@
+@use "../abstracts/mixins" as *;
+
+// Full-screen menu panel.
+//
+// It is rendered inside .site-header, whose stacking context it shares. A
+// negative z-index paints it over the header background but under the header
+// bar, so the logo and the close button stay on top.
+
+.menu-panel {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  padding-block: calc(var(--site-header-height) + var(--skt-spacing-s)) var(--skt-spacing-m);
+  overflow-y: auto;
+  background: var(--skt-color-base);
+  color: var(--skt-color-contrast);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s;
+
+  .has-menu-open & {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+  }
+}
+
+.has-menu-open {
+  overflow: hidden;
+}
+
+.menu-panel__inner {
+  @include container(wide);
+}
+
+.menu-panel__menu,
+.menu-panel__submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-panel__item--top {
+  border-block-end: 1px solid var(--skt-color-border);
+}
+
+.menu-panel__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-panel__link {
+  display: block;
+  padding-block: 0.75rem;
+  color: inherit;
+  font-family: var(--skt-font-heading);
+  font-size: var(--skt-font-size-h3);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+
+  &:hover,
+  &[aria-current="page"] {
+    color: var(--skt-color-primary);
+  }
+}
+
+.menu-panel__toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+
+  &[aria-expanded="true"] .menu-panel__toggle-icon {
+    transform: rotate(180deg);
+  }
+}
+
+.menu-panel__toggle-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.menu-panel__submenu {
+  padding-block-end: 1rem;
+}
+
+.menu-panel__submenu--nested {
+  padding-inline-start: 1rem;
+}
+
+.menu-panel__sublink {
+  display: block;
+  padding-block: 0.375rem;
+  color: var(--skt-color-muted);
+  font-size: var(--skt-font-size-body-l);
+  text-decoration: none;
+
+  &:hover,
+  &[aria-current="page"] {
+    color: var(--skt-color-contrast);
+  }
+}

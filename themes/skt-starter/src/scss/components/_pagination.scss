@@ -1,0 +1,30 @@
+.pagination {
+  margin-block-start: var(--skt-spacing-m);
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .page-numbers {
+    display: grid;
+    place-items: center;
+    min-width: 2.75rem;
+    height: 2.75rem;
+    padding-inline: 0.75rem;
+    border-radius: 999px;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      background: var(--skt-color-surface);
+    }
+
+    &.current {
+      background: var(--skt-color-contrast);
+      color: var(--skt-color-base);
+    }
+  }
+}

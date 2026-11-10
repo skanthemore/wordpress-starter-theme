@@ -1,0 +1,149 @@
+@use "../abstracts/mixins" as *;
+
+// Header bar.
+//
+// Colors come from two local properties so the light/dark schemes, the
+// compact state and the open menu only swap values.
+
+:root {
+  --site-header-height: 4.5rem;
+
+  @include from(lg) {
+    --site-header-height: 5.5rem;
+  }
+}
+
+.site-header {
+  --header-fg: var(--skt-color-contrast);
+  --header-bg: var(--skt-color-base);
+
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  background: var(--header-bg);
+  color: var(--header-fg);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  .admin-bar & {
+    top: var(--wp-admin--admin-bar--height, 0);
+  }
+
+  &.is-scrolled {
+    box-shadow: 0 1px 0 var(--skt-color-border);
+  }
+}
+
+.has-header-overlay .site-header:not(.is-scrolled) {
+  --header-bg: transparent;
+}
+
+.has-header-light .site-header:not(.is-scrolled) {
+  --header-fg: var(--skt-color-base);
+}
+
+.has-menu-open .site-header {
+  --header-fg: var(--skt-color-contrast);
+  --header-bg: var(--skt-color-base);
+
+  box-shadow: none;
+}
+
+.site-header__inner {
+  @include container(wide);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--skt-grid-gutter-md);
+  height: var(--site-header-height);
+}
+
+.site-logo {
+  flex-shrink: 0;
+
+  img {
+    width: auto;
+    max-height: calc(var(--site-header-height) - 1.5rem);
+  }
+}
+
+.site-logo__text {
+  color: inherit;
+  font-family: var(--skt-font-heading);
+  font-size: var(--skt-font-size-body-l);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--skt-grid-gutter-sm);
+}
+
+.site-header__cta {
+  @include below(sm) {
+    display: none;
+  }
+}
+
+.site-header__toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+// Three bars drawn with one element and two pseudo-elements; they fold into
+// a cross while the menu is open.
+.site-header__toggle-bars,
+.site-header__toggle-bars::before,
+.site-header__toggle-bars::after {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: currentColor;
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease;
+}
+
+.site-header__toggle-bars {
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 0;
+    content: "";
+  }
+
+  &::before {
+    top: -0.45rem;
+  }
+
+  &::after {
+    top: 0.45rem;
+  }
+}
+
+[aria-expanded="true"] > .site-header__toggle-bars {
+  background: transparent;
+
+  &::before {
+    transform: translateY(0.45rem) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateY(-0.45rem) rotate(-45deg);
+  }
+}

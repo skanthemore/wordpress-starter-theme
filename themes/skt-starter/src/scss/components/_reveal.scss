@@ -1,0 +1,24 @@
+// Scroll reveal states, driven by src/js/modules/reveal.js.
+//
+// The hidden state only exists once the script has added `html.has-motion`,
+// so without JavaScript nothing is ever hidden.
+
+.has-motion [data-reveal]:not(.is-inview) {
+  opacity: 0;
+  transform: translate3d(0, 1.5rem, 0);
+}
+
+.has-motion [data-reveal="fade"]:not(.is-inview) {
+  transform: none;
+}
+
+.has-motion [data-reveal="image"]:not(.is-inview) {
+  transform: scale(1.04);
+}
+
+.has-motion [data-reveal].is-inview {
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}

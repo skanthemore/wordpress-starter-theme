@@ -1,0 +1,54 @@
+// Buttons. Blocks reuse these classes for their calls to action.
+
+.button,
+.wp-element-button,
+.search-submit {
+  --button-bg: var(--skt-color-primary);
+  --button-color: var(--skt-color-on-primary);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--button-bg);
+  border-radius: 999px;
+  background: var(--button-bg);
+  color: var(--button-color);
+  font-size: var(--skt-font-size-body-m);
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    background: transparent;
+    color: var(--button-bg);
+  }
+}
+
+.button--small {
+  min-height: 2.5rem;
+  padding: 0.5rem 1.125rem;
+  font-size: var(--skt-font-size-body-s);
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--button-bg);
+
+  &:hover {
+    background: var(--button-bg);
+    color: var(--button-color);
+  }
+}
+
+// For buttons placed on dark or primary backgrounds.
+.button--inverse {
+  --button-bg: var(--skt-color-base);
+  --button-color: var(--skt-color-contrast);
+}

@@ -1,0 +1,35 @@
+.back-to-top {
+  position: fixed;
+  z-index: 90;
+  right: var(--skt-grid-margin);
+  bottom: var(--skt-grid-margin);
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--skt-color-contrast);
+  color: var(--skt-color-base);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0s linear 0.3s;
+
+  &.is-visible,
+  &:focus-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}

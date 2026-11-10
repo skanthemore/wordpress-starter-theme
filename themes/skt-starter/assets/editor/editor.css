@@ -1,0 +1,22 @@
+/*
+ * Block editor canvas.
+ *
+ * Loaded through add_editor_style(), so WordPress scopes every rule to the
+ * editor canvas. Keep it minimal: blocks provide their own editor styles.
+ */
+
+body {
+	background: #fff;
+	color: #1e1e1e;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: inherit;
+	font-family: inherit;
+}

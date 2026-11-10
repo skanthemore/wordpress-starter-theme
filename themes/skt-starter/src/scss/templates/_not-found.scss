@@ -1,0 +1,25 @@
+@use "../abstracts/mixins" as *;
+
+.not-found {
+  @include container(content);
+
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+  padding-block: var(--skt-spacing-xl);
+}
+
+.not-found__title {
+  margin: 0;
+  font-size: var(--skt-font-size-h1);
+}
+
+.not-found__text {
+  margin: 0;
+  color: var(--skt-color-muted);
+  font-size: var(--skt-font-size-body-l);
+}
+
+.not-found .search-form {
+  width: 100%;
+}
