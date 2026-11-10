@@ -1,0 +1,14 @@
+.skt-heading__text {
+  margin: 0;
+  font-family: var(--skt-font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+@each $size in (h1, h2, h3, h4) {
+  .skt-heading--#{$size} .skt-heading__text {
+    font-size: var(--skt-font-size-#{$size});
+  }
+}

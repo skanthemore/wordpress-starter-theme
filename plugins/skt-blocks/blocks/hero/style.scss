@@ -1,0 +1,93 @@
+@use "mixins" as *;
+
+.skt-hero {
+  position: relative;
+  display: grid;
+  align-items: end;
+  margin-block: 0;
+  overflow: hidden;
+}
+
+.skt-hero--plain {
+  padding-block: var(--skt-spacing-xl) var(--skt-spacing-l);
+  background: var(--skt-color-surface);
+}
+
+.skt-hero--media {
+  min-height: 85svh;
+  color: var(--skt-color-base);
+
+  @include from(md) {
+    min-height: 100svh;
+  }
+}
+
+.skt-hero__media {
+  position: absolute;
+  inset: 0;
+
+  picture,
+  .skt-hero__image,
+  .skt-hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .skt-hero--overlay &::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 0.65), rgb(0 0 0 / 0.1) 60%);
+    content: "";
+  }
+}
+
+.skt-hero__video {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+
+  &.is-playing {
+    opacity: 1;
+  }
+}
+
+.skt-hero__content {
+  position: relative;
+  box-sizing: content-box;
+  width: 100%;
+  max-width: var(--skt-width-wide);
+  margin-inline: auto;
+  padding-inline: var(--skt-grid-margin);
+
+  .skt-hero--media & {
+    padding-block-end: var(--skt-spacing-l);
+  }
+}
+
+.skt-hero__heading {
+  max-width: 18ch;
+  margin: 0;
+  font-family: var(--skt-font-heading);
+  font-size: var(--skt-font-size-h1);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.skt-hero__text {
+  max-width: 40rem;
+  margin: 1.25rem 0 0;
+  font-size: var(--skt-font-size-body-l);
+}
+
+.skt-hero__actions {
+  margin: var(--skt-spacing-s) 0 0;
+
+  .skt-hero--media & .button {
+    --button-bg: var(--skt-color-base);
+    --button-color: var(--skt-color-contrast);
+  }
+}

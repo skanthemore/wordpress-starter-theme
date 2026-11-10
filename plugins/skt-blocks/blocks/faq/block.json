@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "skt/faq",
+	"title": "FAQ",
+	"description": "Questions and answers in an accessible accordion, with optional FAQPage structured data.",
+	"category": "skt",
+	"icon": "editor-help",
+	"keywords": [ "faq", "questions", "accordion" ],
+	"textdomain": "skt-blocks",
+	"supports": {
+		"anchor": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"style": [ "skt-blocks-common", "file:./style.css" ]
+}

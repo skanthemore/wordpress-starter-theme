@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "generated/breakpoints" as *;
+
+/// Mobile-first media query.
+/// @param {String} $name Breakpoint name from the theme's breakpoints.php.
+@mixin from($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "Unknown breakpoint `#{$name}`.";
+  }
+
+  @media (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}

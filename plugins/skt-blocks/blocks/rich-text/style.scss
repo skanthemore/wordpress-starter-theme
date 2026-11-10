@@ -1,0 +1,23 @@
+.skt-rich-text__inner {
+  max-width: var(--skt-width-content);
+}
+
+.skt-rich-text__content {
+  font-size: var(--skt-font-size-body-l);
+
+  > :first-child {
+    margin-block-start: 0;
+  }
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.skt-rich-text__actions {
+  margin: var(--skt-spacing-s) 0 0;
+}

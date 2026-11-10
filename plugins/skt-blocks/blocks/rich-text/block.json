@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "skt/rich-text",
+	"title": "Rich text",
+	"description": "Full-width text section with an optional button and a color scheme.",
+	"category": "skt",
+	"icon": "text",
+	"keywords": [ "text", "paragraph", "section" ],
+	"textdomain": "skt-blocks",
+	"supports": {
+		"anchor": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"style": [ "skt-blocks-common", "file:./style.css" ]
+}

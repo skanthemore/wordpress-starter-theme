@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "skt/posts-slider",
+	"title": "Posts slider",
+	"description": "Swipeable row with the latest posts, optionally from a single category.",
+	"category": "skt",
+	"icon": "slides",
+	"keywords": [ "posts", "blog", "news", "carousel" ],
+	"textdomain": "skt-blocks",
+	"supports": {
+		"anchor": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"style": [ "skt-blocks-common", "swiper", "file:./style.css" ],
+	"viewScript": [ "swiper", "file:./view.js" ]
+}

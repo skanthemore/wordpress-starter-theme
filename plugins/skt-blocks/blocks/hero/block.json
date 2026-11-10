@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "skt/hero",
+	"title": "Hero",
+	"description": "Opening section with heading, text, button and a responsive image or background video.",
+	"category": "skt",
+	"icon": "cover-image",
+	"keywords": [ "hero", "cover", "banner", "video" ],
+	"textdomain": "skt-blocks",
+	"supports": {
+		"anchor": true,
+		"multiple": false
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,30 @@
+{
+	"name": "skt-blocks",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Build tooling for the SKT Blocks WordPress plugin.",
+	"author": "Cristian Cascante",
+	"license": "GPL-2.0-or-later",
+	"type": "module",
+	"engines": {
+		"node": ">=18.18"
+	},
+	"browserslist": [
+		"defaults"
+	],
+	"scripts": {
+		"dev": "node scripts/build.js --watch",
+		"build": "node scripts/build.js",
+		"tokens": "php ../../themes/skt-starter/scripts/sync-tokens.php src/scss/generated/_breakpoints.scss",
+		"zip": "../../bin/package.sh ."
+	},
+	"dependencies": {
+		"swiper": "^11.2.10"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.21",
+		"chokidar": "^4.0.3",
+		"postcss": "^8.5.6",
+		"sass": "^1.93.2"
+	}
+}

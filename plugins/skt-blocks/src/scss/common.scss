@@ -1,0 +1,45 @@
+// Styles shared by section blocks. Registered as `skt-blocks-common` and
+// listed in the block.json of every block that uses .skt-section.
+
+.skt-section {
+  --section-bg: var(--skt-color-base, #fff);
+  --section-fg: var(--skt-color-contrast, #16161a);
+  --section-muted: var(--skt-color-muted, #5f6068);
+  --section-line: var(--skt-color-border, #dcdcd8);
+
+  box-sizing: border-box;
+  margin-block: 0;
+  padding: var(--skt-spacing-l, 5rem) var(--skt-grid-margin, 1rem);
+  background: var(--section-bg);
+  color: var(--section-fg);
+}
+
+.skt-section--surface {
+  --section-bg: var(--skt-color-surface, #f4f4f2);
+}
+
+.skt-section--dark,
+.skt-section--primary {
+  --section-muted: color-mix(in srgb, currentColor 72%, transparent);
+  --section-line: color-mix(in srgb, currentColor 20%, transparent);
+
+  .button {
+    --button-bg: var(--skt-color-base, #fff);
+    --button-color: var(--skt-color-contrast, #16161a);
+  }
+}
+
+.skt-section--dark {
+  --section-bg: var(--skt-color-contrast, #16161a);
+  --section-fg: var(--skt-color-base, #fff);
+}
+
+.skt-section--primary {
+  --section-bg: var(--skt-color-primary, #3346d3);
+  --section-fg: var(--skt-color-on-primary, #fff);
+}
+
+.skt-section__inner {
+  max-width: var(--skt-width-wide, 1200px);
+  margin-inline: auto;
+}

@@ -1,0 +1,8 @@
+/.distignore
+/blocks/*/*.scss
+/docs
+/node_modules
+/package.json
+/package-lock.json
+/scripts
+/src/scss

@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "skt/image",
+	"title": "Framed image",
+	"description": "A single image centered on a background picked from the theme palette.",
+	"category": "skt",
+	"icon": "format-image",
+	"keywords": [ "image", "photo", "picture" ],
+	"textdomain": "skt-blocks",
+	"supports": {
+		"anchor": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"style": "file:./style.css"
+}

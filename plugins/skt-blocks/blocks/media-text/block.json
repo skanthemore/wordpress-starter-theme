@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "skt/media-text",
+	"title": "Media & text",
+	"description": "Two-column section pairing an image with an eyebrow, heading, text and button.",
+	"category": "skt",
+	"icon": "align-pull-left",
+	"keywords": [ "image", "text", "columns", "feature" ],
+	"textdomain": "skt-blocks",
+	"supports": {
+		"anchor": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"style": [ "skt-blocks-common", "file:./style.css" ]
+}

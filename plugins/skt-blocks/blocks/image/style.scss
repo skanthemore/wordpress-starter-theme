@@ -1,0 +1,35 @@
+@use "mixins" as *;
+
+.skt-image {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  margin-inline: auto;
+  padding: var(--skt-spacing-m) var(--skt-grid-margin);
+  background: var(--skt-image-bg, var(--skt-color-surface));
+
+  &:not(.skt-image--full) {
+    @include from(md) {
+      border-radius: 1rem;
+    }
+  }
+}
+
+.skt-image__img {
+  max-height: 80vh;
+  width: auto;
+}
+
+.skt-image__placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px dashed currentColor;
+  opacity: 0.6;
+}
+
+.skt-image__caption {
+  font-size: var(--skt-font-size-body-s);
+  opacity: 0.75;
+}

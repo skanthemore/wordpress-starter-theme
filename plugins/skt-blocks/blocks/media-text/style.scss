@@ -1,0 +1,57 @@
+@use "mixins" as *;
+
+.skt-media-text__inner {
+  display: grid;
+  align-items: center;
+  gap: var(--skt-spacing-s) var(--skt-grid-gutter-lg);
+
+  @include from(md) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.skt-media-text--image-start .skt-media-text__media {
+  @include from(md) {
+    order: -1;
+  }
+}
+
+.skt-media-text__eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--section-muted);
+  font-size: var(--skt-font-size-body-s);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.skt-media-text__title {
+  margin: 0;
+  font-size: var(--skt-font-size-h2);
+}
+
+.skt-media-text__text {
+  margin-block-start: 1.25rem;
+  color: var(--section-muted);
+  font-size: var(--skt-font-size-body-l);
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+}
+
+.skt-media-text__actions {
+  margin: var(--skt-spacing-s) 0 0;
+}
+
+.skt-media-text__media {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.skt-media-text__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}

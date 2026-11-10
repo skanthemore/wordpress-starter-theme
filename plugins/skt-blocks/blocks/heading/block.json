@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "skt/heading",
+	"title": "Heading",
+	"description": "Standalone heading whose HTML tag and visual size are chosen independently.",
+	"category": "skt",
+	"icon": "heading",
+	"keywords": [ "title", "headline" ],
+	"textdomain": "skt-blocks",
+	"supports": {
+		"anchor": true,
+		"align": [ "wide" ]
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "render.php"
+	},
+	"style": "file:./style.css"
+}
