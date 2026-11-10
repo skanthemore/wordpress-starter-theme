@@ -1,0 +1,25 @@
+{
+	"name": "skanthemore/wordpress-starter-theme",
+	"description": "Coding standards tooling for the SKT Starter theme and the SKT Blocks plugin.",
+	"type": "project",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Cristian Cascante",
+			"homepage": "https://github.com/skanthemore"
+		}
+	],
+	"require-dev": {
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"wp-coding-standards/wpcs": "^3.1"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"scripts": {
+		"lint": "phpcs",
+		"format": "phpcbf"
+	}
+}

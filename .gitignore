@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+/vendor/
+
+# Build output (run `npm run build` in each package)
+/themes/skt-starter/dist/
+/plugins/skt-blocks/assets/
+/plugins/skt-blocks/blocks/*/*.css
+/build/
+
+# Local environment
+compose.override.yaml
+.env
+
+# System
+.DS_Store
+Thumbs.db
+*.log

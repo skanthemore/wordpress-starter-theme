@@ -1,0 +1,43 @@
+# Local WordPress with the theme and the plugin mounted from this repository.
+#
+#   docker compose up -d   ->  http://localhost:8080
+#
+# ACF PRO is a commercial plugin and is not part of this repository. To use
+# the blocks, mount your own copy from a git-ignored compose.override.yaml:
+#
+#   services:
+#     wordpress:
+#       volumes:
+#         - /path/to/advanced-custom-fields-pro:/var/www/html/wp-content/plugins/advanced-custom-fields-pro
+
+services:
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - db:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:6.9-php8.3-apache
+    depends_on:
+      - db
+    ports:
+      - "${WP_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DEBUG: "1"
+    volumes:
+      - wordpress:/var/www/html
+      - ./themes/skt-starter:/var/www/html/wp-content/themes/skt-starter
+      - ./plugins/skt-blocks:/var/www/html/wp-content/plugins/skt-blocks
+
+volumes:
+  db:
+  wordpress:

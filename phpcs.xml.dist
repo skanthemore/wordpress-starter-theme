@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<ruleset name="SKT">
+	<description>WordPress Coding Standards for the SKT Starter theme and the SKT Blocks plugin.</description>
+
+	<file>themes/skt-starter</file>
+	<file>plugins/skt-blocks</file>
+
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg name="parallel" value="8"/>
+	<arg value="sp"/>
+
+	<config name="minimum_wp_version" value="6.6"/>
+	<config name="testVersion" value="8.1-"/>
+
+	<rule ref="WordPress"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="skt-starter"/>
+				<element value="skt-blocks"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- `skt` is a deliberate, project-wide prefix: allow it despite its length. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="skt"/>
+			</property>
+		</properties>
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
+	</rule>
+
+	<!-- WordPress reads block script dependencies from `{script}.asset.php`. -->
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>*.asset.php</exclude-pattern>
+	</rule>
+
+	<!-- Build scripts run from the CLI, outside WordPress. -->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<exclude-pattern>*/scripts/*</exclude-pattern>
+	</rule>
+</ruleset>
