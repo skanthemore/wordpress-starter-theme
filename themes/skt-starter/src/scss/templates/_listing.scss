@@ -1,12 +1,12 @@
 @use "../abstracts/mixins" as *;
 
-.archive {
+.listing {
   @include container(wide);
 
   padding-block: var(--skt-spacing-m) 0;
 }
 
-.archive__header {
+.listing__header {
   max-width: 48rem;
   margin-block-end: var(--skt-spacing-m);
 
@@ -15,12 +15,12 @@
   }
 }
 
-.archive__title {
+.listing__title {
   margin: 0;
   font-size: var(--skt-font-size-h1);
 }
 
-.archive__description {
+.listing__description {
   margin-block-start: 1rem;
   color: var(--skt-color-muted);
   font-size: var(--skt-font-size-body-l);
@@ -30,14 +30,14 @@
   }
 }
 
-.archive__filter {
+.listing__filter {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-block-start: 1.5rem;
 }
 
-.archive__filter-link {
+.listing__filter-link {
   padding: 0.375rem 1rem;
   border: 1px solid var(--skt-color-border);
   border-radius: 999px;
@@ -56,6 +56,6 @@
   }
 }
 
-.archive__empty {
+.listing__empty {
   color: var(--skt-color-muted);
 }
